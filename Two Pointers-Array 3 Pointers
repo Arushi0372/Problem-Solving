@@ -1,0 +1,20 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int minimize(final int[] A, final int[] B, final int[] C) {
+        int p1 = 0, p2 = 0, p3 = 0;
+        int p = A.length, q = B.length, r = C.length;
+        int minn = Integer.MAX_VALUE;
+        int maxx = Integer.MIN_VALUE;
+        int res = Integer.MAX_VALUE;
+        while(p1<p && p2<q && p3<r){
+            minn = Math.min(A[p1],Math.min(B[p2],C[p3]));
+            maxx = Math.max(A[p1],Math.max(B[p2],C[p3]));
+            int diff = maxx-minn;
+            res = Math.min(diff,res);
+            if(minn==A[p1]){p1++;}
+            else if(minn==B[p2]){p2++;}
+            else{p3++;}
+        }
+        return res;
+    }
+}
