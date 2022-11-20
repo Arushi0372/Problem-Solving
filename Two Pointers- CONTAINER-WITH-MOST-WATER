@@ -1,0 +1,20 @@
+public class Solution {
+    public int maxArea(int[] A) {
+        int p1 = 0;
+        int p2 = A.length-1;
+        int ans = 0;
+        while(p1<p2){
+            int h = Math.min(A[p1],A[p2]);
+            int w = p2-p1;
+            int water = h*w;
+            if(A[p1] <= A[p2]){
+                p1++;
+            }
+            else{
+            p2--;
+        }
+            ans = Math.max(ans,water);
+        }
+        return ans;
+    }
+}
