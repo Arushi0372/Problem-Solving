@@ -1,0 +1,30 @@
+public class Solution {
+    public int solve(int[] A, int[] B) {
+        HashMap<Integer,Integer> hmx = new HashMap<>();
+        HashMap<Integer,Integer> hmy = new HashMap<>();
+        int N = A.length;
+        int ans = 0;
+        for(int i = 0; i < N; i++){
+            if(!hmx.containsKey(A[i])){
+                hmx.put(A[i],1);
+            }
+            else{
+                hmx.put(A[i],hmx.get(A[i])+1);
+            }
+        }
+         for(int i = 0; i < N; i++){
+            if(!hmy.containsKey(B[i])){
+                hmy.put(B[i],1);
+            }
+            else{
+                hmy.put(B[i],hmy.get(B[i])+1);
+            }
+        }
+        for(int i = 0; i < N; i++){
+            int x = hmx.get(A[i]);
+            int y = hmy.get(B[i]);
+            ans = ans + ((x-1)*(y-1)); 
+        }
+        return ans;
+    }
+}
